@@ -28,5 +28,12 @@ vim.o.wrap = false
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
+vim.o.splitbelow = true
+vim.o.splitright = true
+
+vim.cmd("filetype plugin on")
+
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 require("config.keymaps")
