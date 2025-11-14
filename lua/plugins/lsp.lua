@@ -1,20 +1,29 @@
 return {
   {
-    'williamboman/mason.nvim',
+    "williamboman/mason.nvim",
     config = true
   },
   {
-    'neovim/nvim-lspconfig'
+    "neovim/nvim-lspconfig"
   },
   {
-    'williamboman/mason-lspconfig.nvim',
-    dependencies = { 'williamboman/mason.nvim', 'neovim/nvim-lspconfig' },
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
     config = function()
-      require('mason-lspconfig').setup({
-        ensure_installed = { 'lua_ls', 'pyright', 'ts_ls', 'gopls' },
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          "cssls",
+          "html",
+          "eslint_d",
+          "lua_ls",
+          "pyright",
+          "ts_ls",
+          "gopls",
+          "omnisharp",
+        },
         handlers = {
           function(server_name)
-            require('lspconfig')[server_name].setup{}
+            require("lspconfig")[server_name].setup {}
           end
         }
       })
@@ -27,14 +36,14 @@ return {
         severity_sort = true,
       })
 
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
-      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
-      vim.keymap.set('n', 'gi', vim.lsp.buf.implementation) 
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover)
-      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
-      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
-      vim.keymap.set('n', 'gr', vim.lsp.buf.references)
-      vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end)
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+      vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
+      vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
+      vim.keymap.set("n", "K", vim.lsp.buf.hover)
+      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+      vim.keymap.set("n", "gr", vim.lsp.buf.references)
+      vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format { async = true } end)
     end
   }
 }
