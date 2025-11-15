@@ -17,7 +17,15 @@ vim.keymap.set('n', '<A-k>', ':m .-2<CR>==')
 vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv")
 
+-- Toggle wrap
+vim.keymap.set('n', '<leader>tw', ':set wrap!<CR>', { noremap = true, silent = true, desc = 'Toggle Wrap' })
+
 -- Terminal
 vim.keymap.set('n', '<leader>t', ':belowright split | terminal<CR>', { silent = true })
 vim.keymap.set('n', '<leader>tv', ':belowright vsplit | terminal<CR>', { silent = true })
 
+-- Save
+vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Save file' })
+
+-- Tooltip
+vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, { desc = "Signature help" })
