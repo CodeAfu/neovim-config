@@ -29,3 +29,7 @@ vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Save file' })
 
 -- Tooltip
 vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, { desc = "Signature help" })
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic (file)' })
+vim.keymap.set('n', '<leader>qq', vim.diagnostic.setqflist, { desc = 'Open diagnostic (project)' })
