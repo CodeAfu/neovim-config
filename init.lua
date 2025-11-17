@@ -31,9 +31,16 @@ vim.o.expandtab = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 
+-- Use Powershell
+vim.opt.shell = "powershell"
+vim.opt.shellcmdflag = "-NoLogo -ExecutionPolicy RemoteSigned -Command"
+vim.opt.shellquote = ""
+vim.opt.shellxquote = ""
+
 vim.cmd("filetype plugin on")
 
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 require("config.keymaps")
+require("config.auto-venv")
