@@ -10,6 +10,18 @@ return {
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
     config = function()
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+      vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
+      vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
+      vim.keymap.set("n", "K", vim.lsp.buf.hover)
+      vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help)
+      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+      vim.keymap.set("n", "gr", vim.lsp.buf.references)
+      vim.keymap.set("n", "<leader>f", function()
+        vim.lsp.buf.format { async = true }
+      end)
+
       require("mason-lspconfig").setup({
         ensure_installed = {
           "cssls",
@@ -20,17 +32,17 @@ return {
           "ts_ls",
           "gopls",
           "omnisharp",
+          "rust_analyzer",
+          "dockerls",
+          "yamlls",
+          "jsonls",
         },
         handlers = {
           function(server_name)
-            require("lspconfig")[server_name].setup {}
-          end,
-          ["csharp_ls"] = function()
-            require("lspconfig").csharp_ls.setup {
-              cmd = { "csharp-ls" },
-              root_dir = require("lspconfig.util").root_pattern("*.sln", "*.slnx", "*.csproj"),
+            require("lspconfig")[server_name].setup {
+              on_attach = on_attach
             }
-          end
+          end,
         }
       })
 
@@ -41,15 +53,6 @@ return {
         update_in_insert = true,
         severity_sort = true,
       })
-
-      vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-      vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
-      vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
-      vim.keymap.set("n", "K", vim.lsp.buf.hover)
-      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
-      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
-      vim.keymap.set("n", "gr", vim.lsp.buf.references)
-      vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format { async = true } end)
     end
   }
 }

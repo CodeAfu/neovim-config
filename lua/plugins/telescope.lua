@@ -3,6 +3,18 @@ return {
   tag = '0.1.8', -- Recommended to pin to a stable release
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
+    require('telescope').setup({
+      defaults = {
+        file_ignore_patterns = {}, -- Clear default ignores
+      },
+      pickers = {
+        find_files = {
+          hidden = true,    -- Show hidden files
+          no_ignore = true, -- Don't respect .gitignore
+          -- Or use: follow = true, -- Follow symlinks
+        },
+      },
+    })
     -- This 'config' function runs after the plugin is loaded
     local builtin = require('telescope.builtin')
 
