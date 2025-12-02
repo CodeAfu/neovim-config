@@ -1,5 +1,8 @@
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { noremap = true, silent = true })
 
+-- Paste without replacing register or some shit, it's good stuff
+vim.keymap.set('n', '<leader>p', '\"_dP', { noremap = true, silent = true })
+
 -- Terminal escape
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 

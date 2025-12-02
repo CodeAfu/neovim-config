@@ -30,6 +30,7 @@ return {
           "lua_ls",
           "pyright",
           "ts_ls",
+          "eslint",
           "gopls",
           "omnisharp",
           "rust_analyzer",
