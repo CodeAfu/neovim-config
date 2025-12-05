@@ -32,11 +32,18 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.background = "dark"
 
--- Use Powershell
-vim.opt.shell = "powershell"
-vim.opt.shellcmdflag = "-NoLogo -ExecutionPolicy RemoteSigned -Command"
-vim.opt.shellquote = ""
-vim.opt.shellxquote = ""
+vim.g.clipboard = {
+    name = 'win32yank',
+    copy = {
+        ['*'] = 'clip.exe',
+        ['+'] = 'clip.exe',
+    },
+    paste = {
+        ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    },
+    cache_enabled = 0,
+}
 
 vim.cmd("filetype plugin on")
 
