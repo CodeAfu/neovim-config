@@ -4,7 +4,18 @@ return {
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
     local harpoon = require('harpoon')
-    harpoon:setup()
+
+    local start_dir = vim.fn.getcwd()
+
+    harpoon:setup({
+      settings = {
+        save_on_toggle = true,
+        sync_on_ui_close = true,
+        key = function()
+          return start_dir
+        end,
+      },
+    })
 
     vim.keymap.set('n', '<leader>a', function() harpoon:list():add() end)
     vim.keymap.set('n', '<C-e>', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)

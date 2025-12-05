@@ -4,7 +4,8 @@ return {
     config = true
   },
   {
-    "neovim/nvim-lspconfig"
+    "neovim/nvim-lspconfig",
+    version = "^2.0.0",
   },
   {
     "williamboman/mason-lspconfig.nvim",
@@ -21,6 +22,8 @@ return {
       vim.keymap.set("n", "<leader>f", function()
         vim.lsp.buf.format { async = true }
       end)
+
+      local lspconfig = require("lspconfig")
 
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -39,11 +42,19 @@ return {
         },
         handlers = {
           function(server_name)
-            require("lspconfig")[server_name].setup {
-              on_attach = on_attach
-            }
+            lspconfig[server_name].setup({})
           end,
         }
+      })
+
+      -- System lua-ls
+      lspconfig.lua_ls.setup({
+        settings = {
+          Lua = {
+            diagnostics = { globals = { "vim" } },
+            workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+          },
+        },
       })
 
       vim.diagnostic.config({

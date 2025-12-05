@@ -1,5 +1,11 @@
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { noremap = true, silent = true })
 
+-- Navigate vim panes better
+-- vim.keymap.set('n', '<C-k>', ':wincmd k<CR>')
+-- vim.keymap.set('n', '<C-j>', ':wincmd j<CR>')
+-- vim.keymap.set('n', '<C-h>', ':wincmd h<CR>')
+-- vim.keymap.set('n', '<C-l>', ':wincmd l<CR>')
+
 -- Paste without replacing register or some shit, it's good stuff
 vim.keymap.set('n', '<leader>p', '\"_dP', { noremap = true, silent = true })
 
