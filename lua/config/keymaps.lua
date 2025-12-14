@@ -33,7 +33,11 @@ vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv")
 -- Toggle wrap
 vim.keymap.set('n', '<leader>tw', ':set wrap!<CR>', { noremap = true, silent = true, desc = 'Toggle Wrap' })
 
--- Terminal
+-- Vim Split
+vim.keymap.set('n', '<leader>s', ':belowright split<CR>', { silent = true })
+vim.keymap.set('n', '<leader>sv', ':belowright vsplit<CR>', { silent = true })
+
+-- Terminal Split
 vim.keymap.set('n', '<leader>t', ':belowright split | terminal<CR>', { silent = true })
 vim.keymap.set('n', '<leader>tv', ':belowright vsplit | terminal<CR>', { silent = true })
 
