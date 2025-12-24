@@ -23,6 +23,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.cursorline = true
 vim.o.scrolloff = 8
+vim.o.sidescrolloff = 8
 vim.o.confirm = true
 vim.o.wrap = false
 vim.o.tabstop = 4
