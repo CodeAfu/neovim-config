@@ -69,6 +69,19 @@ return {
         },
       })
 
+      lspconfig.gopls.setup({
+        settings = {
+          gopls = {
+            analyses = {
+              unusedparams = true,
+              shadow = true,
+            },
+            staticcheck = true,
+            gofumpt = true,
+          },
+        },
+      })
+
       vim.diagnostic.config({
         virtual_text = true,
         signs = true,

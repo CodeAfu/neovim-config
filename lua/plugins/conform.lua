@@ -42,6 +42,7 @@ return {
       json = { "prettier" },
       yaml = { "prettier" },
       markdown = { "prettier" },
+      go = { "goimports", "gofmt" },
     },
   },
 }

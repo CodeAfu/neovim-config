@@ -11,6 +11,10 @@ return {
         'html',
         'css',
         'tsx',
+        "go",
+        "gomod",
+        "gosum",
+        "gowork",
       },
       highlight = { enable = true },
       indent = { enable = true }
