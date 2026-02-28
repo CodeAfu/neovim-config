@@ -32,6 +32,7 @@ vim.o.expandtab = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.background = "dark"
+vim.o.swapfile = false
 
 vim.g.clipboard = {
   name = 'win32yank',
@@ -54,3 +55,4 @@ vim.api.nvim_set_hl(0, "CursorLine", {
 
 require("config.keymaps")
 require("config.auto-venv")
+require("config.hide-cursor")

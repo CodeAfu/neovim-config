@@ -8,7 +8,18 @@ return {
     version = "^2.0.0",
   },
   {
+    "mfussenegger/nvim-jdtls",
+    ft = "java"
+  },
+  {
     "williamboman/mason-lspconfig.nvim",
+    opts = {
+      automatic_enable = {
+        exclude = {
+          "jdtls",
+        }
+      }
+    },
     dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
     config = function()
       vim.keymap.set("n", "gd", vim.lsp.buf.definition)
@@ -44,6 +55,7 @@ return {
           function(server_name)
             lspconfig[server_name].setup({})
           end,
+          jdtls = function() end
         }
       })
 
